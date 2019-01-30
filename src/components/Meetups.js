@@ -55,7 +55,7 @@ export default class Meetups extends Component {
         
         return (
             <div className="container-fluid">
-                <h2>ShopKitty Tes</h2>
+                <h2>Shop Ketti Tes</h2>
                 <table className='highlight responsive-table'>
                     <thead>
                         <tr>

@@ -6,7 +6,7 @@ export default class Navbar extends Component {
             <div>
                 <nav className="nav-extended">
                     <div className="nav-wrapper">
-                        <a href="/" className="brand-logo ">Shop Kitty</a>
+                        <a href="/" className="brand-logo ">Shop Ketti</a>
                         <a href="/" data-target="mobile-demo" className="sidenav-trigger show-on-large"><i className="fa fa-bars"></i></a>
                         <ul id="nav-mobile" className="right hide-on-small-only">
                             <li><Link to="/"><i className="fa fa-users"></i>Home</Link></li>
