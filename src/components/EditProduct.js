@@ -17,6 +17,13 @@ export default class EditUser extends Component {
     componentWillMount() {
         this.getDatasDetails()
     }
+
+    componentDidMount(){
+        alert(this.props.match.params.id)
+        axios.get("https://aqueous-river-95723.herokuapp.com/products/" + this.props.match.params.id).then((x) => {
+            console.log(x)
+        })
+    }
     getDatasDetails() {
         let dataId = this.props.match.params.id
         axios.get(`http://localhost:3006/product/${dataId}`)
@@ -36,7 +43,7 @@ export default class EditUser extends Component {
     editUser(newUser) {
         axios.request({
             method: 'put',
-            url: ` https://aqueous-river-95723.herokuapp.com/products/${this.state.id}`,
+            url: ` https://aqueous-river-95723.herokuapp.com/products/${this.state._id}`,
             data: newUser
         }).then((respon) => {
             this.props.history.push('/')

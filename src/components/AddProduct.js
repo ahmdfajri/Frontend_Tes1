@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 export default class AddUser extends Component {
     addUser(addUser) {
+        let dataId = this.props.match.params.id
         axios.request({
             method: 'post',
-            url: ' https://aqueous-river-95723.herokuapp.com/products/',
+            url: `http://localhost:3006/product/${dataId}`,
             data: addUser
         }).then((respon) => {
             this.props.history.push('/')
-        }).catch((err) => { console.log(err) })
+        }).catch((err) => { console.log(err)})
     }
     onSubmit(e) {
         const newUser = {
@@ -18,11 +19,7 @@ export default class AddUser extends Component {
             product_price: this.refs.price.value,
             product_gambar: this.refs.image_url.value,
             product_category: this.refs.category.value,
-        product_sellerName: this.refs.seller_name.value,
-        product_id: this.refs._id.value,
-        product_sku: this.refs.sku.value,
-        product_created: this.refs.Created_date.value,
-        product_v: this.refs._v.value
+            product_sellerName: this.refs.seller_name.value,
         }
         this.addUser(newUser);
         e.preventDefault();
@@ -59,23 +56,6 @@ export default class AddUser extends Component {
                         <input type="text" name="product_sellerName" ref="product_sellerName" />
                         <label htmlFor="name">Seller Name</label>
                     </div>
-                    <div className="input-field">
-                        <input type="text" name="product_id" ref="product_id" />
-                        <label htmlFor="name">id</label>
-                    </div>
-                    <div className="input-field">
-                        <input type="text" name="product_sku" ref="product_sku" />
-                        <label htmlFor="name">product_sku</label>
-                    </div>
-                    <div className="input-field">
-                        <input type="text" name="product_createdDate" ref="createdDate" />
-                        <label htmlFor="name">Created Date</label>
-                    </div>
-                    <div className="input-field">
-                        <input type="text" name="-v" ref="-v" />
-                        <label htmlFor="name">v</label>
-                    </div>
-                    
                     <input type="submit" value="Save" className="btn" />
                 </form>
             </div>
